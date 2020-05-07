@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20200507114727_add_activation_to_users.rb
