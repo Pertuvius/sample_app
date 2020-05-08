@@ -52,7 +52,7 @@ class User < ApplicationRecord
   
  private
 
-    # Converts email to all lower-case.
+    # Converts email to all lower-case. #durere si suferinta
     def downcase_email
       self.email = email.downcase
     end
