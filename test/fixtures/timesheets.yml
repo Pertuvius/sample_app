@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: one
+  clock: MyString
+  time: 2020-05-13 14:40:58
+
+two:
+  employee: two
+  clock: MyString
+  time: 2020-05-13 14:40:58

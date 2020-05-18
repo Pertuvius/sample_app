@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 2020_05_13_144058) do
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.integer "employer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["employer_id"], name: "index_employees_on_employer_id"
   end
 
   create_table "employers", force: :cascade do |t|
@@ -30,8 +32,10 @@ ActiveRecord::Schema.define(version: 2020_05_13_144058) do
     t.string "user"
     t.string "clock"
     t.datetime "time"
+    t.integer "employee_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_timesheets_on_employee_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +52,6 @@ ActiveRecord::Schema.define(version: 2020_05_13_144058) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "employees", "employers"
+  add_foreign_key "timesheets", "employees"
 end

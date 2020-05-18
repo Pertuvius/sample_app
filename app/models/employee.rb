@@ -21,7 +21,7 @@ class Employee < ApplicationRecord
 
 private
 
-  def user_params
+  def employee_params
     params.require(:employer).permit(:create)
   end
 
