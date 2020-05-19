@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_144058) do
+ActiveRecord::Schema.define(version: 2020_05_19_190121) do
+
+  create_table "budgets", force: :cascade do |t|
+    t.integer "hours"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "employer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employer_id"], name: "index_budgets_on_employer_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
@@ -29,12 +39,13 @@ ActiveRecord::Schema.define(version: 2020_05_13_144058) do
   end
 
   create_table "timesheets", force: :cascade do |t|
-    t.string "user"
-    t.string "clock"
-    t.datetime "time"
+    t.integer "hours"
+    t.datetime "date_of_service"
     t.integer "employee_id", null: false
+    t.integer "budget_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["budget_id"], name: "index_timesheets_on_budget_id"
     t.index ["employee_id"], name: "index_timesheets_on_employee_id"
   end
 
@@ -52,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_05_13_144058) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "budgets", "employers"
   add_foreign_key "employees", "employers"
+  add_foreign_key "timesheets", "budgets"
   add_foreign_key "timesheets", "employees"
 end

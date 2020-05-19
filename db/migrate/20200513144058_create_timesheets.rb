@@ -1,10 +1,10 @@
 class CreateTimesheets < ActiveRecord::Migration[6.0]
   def change
     create_table :timesheets do |t|
-      t.string :user
-      t.string :clock
-      t.datetime :time
+      t.integer :hours
+      t.datetime :date_of_service
       t.references :employee, null: false, foreign_key: true
+      t.references :budget, null: false, foreign_key: true
       
       t.timestamps
     end
