@@ -3,9 +3,9 @@
 one:
   first_name: MyString
   last_name: MyString
-  employer: MyString
+  employer: one
 
 two:
-  first_name: MyString
-  last_name: MyString
-  employer: MyString
+  first_name: Paul  
+  last_name: Garson
+  employer: two

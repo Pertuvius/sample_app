@@ -10,6 +10,9 @@ class EmployersController < ApplicationController
   # GET /employers/1
   # GET /employers/1.json
   def show
+     @employer  = Employer.find(params[:id])
+     @employees = @employer.employees.paginate(page: params[:page])
+     @budgets   = @employer.budgets.paginate(page: params[:page])
   end
 
   # GET /employers/new
@@ -61,14 +64,14 @@ class EmployersController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_employer
-      @employer = Employer.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_employer
+    @employer = Employer.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def employer_params
-      params.require(:employer).permit(:first_name, :last_name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def employer_params
+    params.require(:employer).permit(:first_name, :last_name, :employees_id)
+  end
 end

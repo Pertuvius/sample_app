@@ -2,10 +2,12 @@
 
 one:
   employee: one
-  clock: MyString
-  time: 2020-05-13 14:40:58
+  hours: 1
+  date_of_service: 2020-05-13 14:40:58
+  budget: one
 
 two:
   employee: two
-  clock: MyString
-  time: 2020-05-13 14:40:58
+  hours: 1
+  date_of_service: 2020-05-13 14:40:58
+  budget: two

@@ -5,5 +5,5 @@ one:
   last_name: MyString
 
 two:
-  first_name: MyString
-  last_name: MyString
+  first_name: Paul  
+  last_name: Garson

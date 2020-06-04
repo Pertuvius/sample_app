@@ -17,7 +17,7 @@ class BudgetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create budget" do
     assert_difference('Budget.count') do
-      post budgets_url, params: { budget: { employer_id_id: @budget.employer_id_id, end_date: @budget.end_date, hours: @budget.hours, start_date: @budget.start_date } }
+      post budgets_url, params: { budget: { employer_id: @budget.employer_id, end_date: @budget.end_date, hours: @budget.hours, start_date: @budget.start_date } }
     end
 
     assert_redirected_to budget_url(Budget.last)
@@ -34,7 +34,7 @@ class BudgetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update budget" do
-    patch budget_url(@budget), params: { budget: { employer_id_id: @budget.employer_id_id, end_date: @budget.end_date, hours: @budget.hours, start_date: @budget.start_date } }
+    patch budget_url(@budget), params: { budget: { employer_id: @budget.employer_id, end_date: @budget.end_date, hours: @budget.hours, start_date: @budget.start_date } }
     assert_redirected_to budget_url(@budget)
   end
 

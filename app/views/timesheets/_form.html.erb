@@ -12,19 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Employee %>
-    <%= form.text_field :Employee %>
+    <%= form.label :employee_id %>
+    <%= form.select :employee_id, Employee.all.collect { |e| ["#{e.last_name} (#{e.employer.last_name})", e.id] }  %>
   </div>
 
   <div class="field">
-    <%= form.label :clock %>
-    <%= form.text_field :clock %>
+    <%= form.label :hours %>
+    <%= form.text_field :hours %>
   </div>
 
   <div class="field">
-    <%= form.label :time %>
-    <%= form.datetime_select :time %>
+    <%= form.label :date_of_service %>
+    <%= form.date_select :date_of_service %>
   </div>
+
+  <div class="field">
+    <%= form.label :budget_id %>
+    <%= form.select :budget_id, Budget.all.collect { |b| ["#{b.id} (#{b.employer.last_name}) (#{b.start_date.to_date} - #{b.end_date.to_date})", b.id] }  %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

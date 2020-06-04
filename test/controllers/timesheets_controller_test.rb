@@ -17,7 +17,7 @@ class TimesheetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create timesheet" do
     assert_difference('Timesheet.count') do
-      post timesheets_url, params: { timesheet: { clock: @timesheet.clock, time: @timesheet.time, employee: @timesheet.employee } }
+      post timesheets_url, params: { timesheet: { hours: @timesheet.hours, date_of_service: @timesheet.date_of_service, employee_id: @timesheet.employee_id, budget_id: @timesheet.budget_id } }
     end
 
     assert_redirected_to timesheet_url(Timesheet.last)
@@ -34,7 +34,7 @@ class TimesheetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update timesheet" do
-    patch timesheet_url(@timesheet), params: { timesheet: { clock: @timesheet.clock, time: @timesheet.time, user: @timesheet.user } }
+    patch timesheet_url(@timesheet), params: { timesheet: { hours: @timesheet.hours, date_of_service: @timesheet.date_of_service, employee_id: @timesheet.employee_id, budget_id: @timesheet.budget_id } }
     assert_redirected_to timesheet_url(@timesheet)
   end
 

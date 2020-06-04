@@ -10,6 +10,8 @@ class BudgetsController < ApplicationController
   # GET /budgets/1
   # GET /budgets/1.json
   def show
+     @budget = Budget.find(params[:id])
+     @timesheets = @budget.timesheets.paginate(page: params[:page])
   end
 
   # GET /budgets/new
@@ -61,14 +63,15 @@ class BudgetsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_budget
-      @budget = Budget.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_budget
+    @budget = Budget.find(params[:id])
+    @employer = Budget.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def budget_params
-      params.require(:budget).permit(:hours, :start_date, :end_date, :employer_id_id)
-    end
+   # Never trust parameters from the scary internet, only allow the white list through.
+  def budget_params
+    params.require(:budget).permit(:hours, :start_date, :end_date, :employer_id, :timesheet_id)
+  end
 end

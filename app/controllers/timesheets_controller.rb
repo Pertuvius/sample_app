@@ -10,7 +10,9 @@ class TimesheetsController < ApplicationController
   # GET /timesheets/1
   # GET /timesheets/1.json
   def show
-  end
+     @timesheet = Timesheet.find(params[:id])
+     @employee  = @timesheet.employee
+  end 
 
   # GET /timesheets/new
   def new
@@ -69,6 +71,6 @@ class TimesheetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timesheet_params
-      params.require(:timesheet).permit(:employee, :clock, :time)
+      params.require(:timesheet).permit(:employee_id, :hours, :date_of_service, :budget_id)
     end
 end

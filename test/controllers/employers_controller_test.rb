@@ -17,9 +17,8 @@ class EmployersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create employer" do
     assert_difference('Employer.count') do
-      post employers_url, params: { employer: { first_name: @employer.first_name, last_name: @employer.last_name } }
+      post employers_url, params: { employer: { first_name: 'paul', last_name: 'vaca' } }
     end
-
     assert_redirected_to employer_url(Employer.last)
   end
 

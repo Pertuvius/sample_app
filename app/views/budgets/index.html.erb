@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Budgets</th>
       <th>Hours</th>
       <th>Start date</th>
       <th>End date</th>
@@ -16,10 +17,11 @@
   <tbody>
     <% @budgets.each do |budget| %>
       <tr>
+        <td><%= budget.id %></td>
         <td><%= budget.hours %></td>
         <td><%= budget.start_date %></td>
         <td><%= budget.end_date %></td>
-        <td><%= budget.employer_id_id %></td>
+        <td><%= budget.employer.last_name %></td>
         <td><%= link_to 'Show', budget %></td>
         <td><%= link_to 'Edit', edit_budget_path(budget) %></td>
         <td><%= link_to 'Destroy', budget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
