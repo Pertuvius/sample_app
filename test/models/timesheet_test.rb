@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TimesheetTest < ActiveSupport::TestCase
- 
   def setup
     @timesheet = Timesheet.new(employee: employees(:one), hours: 1, date_of_service: '2020-05-15', budget: budgets(:one))
   end
