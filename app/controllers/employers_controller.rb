@@ -4,15 +4,15 @@ class EmployersController < ApplicationController
   # GET /employers
   # GET /employers.json
   def index
-    @employers = Employer.all
+    @employers = Employer.paginate(page: params[:page])
   end
 
   # GET /employers/1
   # GET /employers/1.json
   def show
      @employer  = Employer.find(params[:id])
-     @employees = @employer.employees.paginate(page: params[:page])
-     @budgets   = @employer.budgets.paginate(page: params[:page])
+     @employees = @employer.employees
+     @budgets   = @employer.budgets
   end
 
   # GET /employers/new

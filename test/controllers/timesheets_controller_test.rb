@@ -19,7 +19,6 @@ class TimesheetsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Timesheet.count') do
       post timesheets_url, params: { timesheet: { hours: @timesheet.hours, date_of_service: @timesheet.date_of_service, employee_id: @timesheet.employee_id, budget_id: @timesheet.budget_id } }
     end
-
     assert_redirected_to timesheet_url(Timesheet.last)
   end
 
@@ -42,7 +41,6 @@ class TimesheetsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Timesheet.count', -1) do
       delete timesheet_url(@timesheet)
     end
-
     assert_redirected_to timesheets_url
   end
 end

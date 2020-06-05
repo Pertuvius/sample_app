@@ -41,7 +41,6 @@ class EmployersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Employer.count', -1) do
       delete employer_url(@employer)
     end
-
     assert_redirected_to employers_url
   end
 end

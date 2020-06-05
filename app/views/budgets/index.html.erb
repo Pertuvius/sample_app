@@ -2,10 +2,10 @@
 
 <h1>Budgets</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Budgets</th>
+      <th>Id</th>
       <th>Hours</th>
       <th>Start date</th>
       <th>End date</th>
@@ -19,8 +19,8 @@
       <tr>
         <td><%= budget.id %></td>
         <td><%= budget.hours %></td>
-        <td><%= budget.start_date %></td>
-        <td><%= budget.end_date %></td>
+        <td><%= budget.start_date.to_date %></td>
+        <td><%= budget.end_date.to_date %></td>
         <td><%= budget.employer.last_name %></td>
         <td><%= link_to 'Show', budget %></td>
         <td><%= link_to 'Edit', edit_budget_path(budget) %></td>
@@ -29,6 +29,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @budgets %>
 
 <br>
 

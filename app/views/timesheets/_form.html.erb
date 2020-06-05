@@ -31,7 +31,6 @@
     <%= form.select :budget_id, Budget.all.collect { |b| ["#{b.id} (#{b.employer.last_name}) (#{b.start_date.to_date} - #{b.end_date.to_date})", b.id] }  %>
   </div>
 
-
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -7,12 +7,12 @@
 
 <p>
   <strong>Start date:</strong>
-  <%= @budget.start_date %>
+  <%= @budget.start_date.to_date %>
 </p>
 
 <p>
   <strong>End date:</strong>
-  <%= @budget.end_date %>
+  <%= @budget.end_date.to_date %>
 </p>
 
 <p>
@@ -23,7 +23,7 @@
 <p>
   <strong>Timesheets:</strong>
   
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Employee</th>
@@ -37,7 +37,6 @@
       <%= render @timesheets %>
     </tbody>
   </table>
-  <%= will_paginate @timesheets %>
 </p>
 </p>
 

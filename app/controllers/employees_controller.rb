@@ -12,7 +12,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1.json
   def show
     @employee   = Employee.find(params[:id])
-    @timesheets = @employee.timesheets.paginate(page: params[:page])
+    @timesheets = @employee.timesheets
   end
 
   # GET /employees/new

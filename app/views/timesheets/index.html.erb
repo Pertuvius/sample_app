@@ -1,11 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Timesheets</h1>
-
-<table>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<table class="table">
   <thead>
     <tr>
       <th>Employee</th>
+      <th>Budget</th>
       <th>Hours</th>
       <th>Date of Service</th>
       <th colspan="3"></th>
@@ -16,8 +23,9 @@
     <% @timesheets.each do |timesheet| %>
       <tr>
         <td><%= timesheet.employee.last_name %></td>
+        <td><%= timesheet.budget.id %></td>
         <td><%= timesheet.hours %></td>
-        <td><%= timesheet.date_of_service %></td>
+        <td><%= timesheet.date_of_service.to_date %></td>
         <td><%= link_to 'Show', timesheet %></td>
         <td><%= link_to 'Edit', edit_timesheet_path(timesheet) %></td>
         <td><%= link_to 'Destroy', timesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,6 +33,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @timesheets %>
 
 <br>
 

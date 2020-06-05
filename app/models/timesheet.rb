@@ -2,6 +2,7 @@ class Timesheet < ApplicationRecord
 	attr_accessor :month, :day, :year
 	belongs_to :employee
 	belongs_to :budget
+	
 	validates :employee_id, presence: true
 	validates :budget_id, presence: true
 	validates :hours, presence: true, numericality: true

@@ -4,7 +4,7 @@ class TimesheetsController < ApplicationController
   # GET /timesheets
   # GET /timesheets.json
   def index
-    @timesheets = Timesheet.all
+    @timesheets = Timesheet.paginate(page: params[:page])
   end
 
   # GET /timesheets/1
@@ -64,13 +64,14 @@ class TimesheetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_timesheet
-      @timesheet = Timesheet.find(params[:id])
-    end
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_timesheet
+    @timesheet = Timesheet.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def timesheet_params
-      params.require(:timesheet).permit(:employee_id, :hours, :date_of_service, :budget_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def timesheet_params
+    params.require(:timesheet).permit(:employee_id, :hours, :date_of_service, :budget_id)
+  end
 end

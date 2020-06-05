@@ -6,16 +6,19 @@
 </p>
 
 <p>
+  <strong>Budget:</strong>
+  <%= @timesheet.budget.id  %>
+</p>
+
+<p>
   <strong>Hours:</strong>
   <%= @timesheet.hours %>
 </p>
 
 <p>
   <strong>Date of service:</strong>
-  <%= @timesheet.date_of_service %>
+  <%= @timesheet.date_of_service.to_date %>
 </p>
-
-
 
 <%= link_to 'Edit', edit_timesheet_path(@timesheet) %> |
 <%= link_to 'Back', timesheets_path %>

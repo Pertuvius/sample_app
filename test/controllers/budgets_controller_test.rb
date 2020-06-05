@@ -19,7 +19,6 @@ class BudgetsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Budget.count') do
       post budgets_url, params: { budget: { employer_id: @budget.employer_id, end_date: @budget.end_date, hours: @budget.hours, start_date: @budget.start_date } }
     end
-
     assert_redirected_to budget_url(Budget.last)
   end
 
@@ -42,7 +41,6 @@ class BudgetsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Budget.count', -1) do
       delete budget_url(@budget)
     end
-
     assert_redirected_to budgets_url
   end
 end
