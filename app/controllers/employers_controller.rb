@@ -1,4 +1,5 @@
 class EmployersController < ApplicationController
+  before_action :logged_in_user
   before_action :set_employer, only: [:show, :edit, :update, :destroy]
 
   # GET /employers
@@ -22,6 +23,7 @@ class EmployersController < ApplicationController
 
   # GET /employers/1/edit
   def edit
+    @employer = Employer.find(params[:id])
   end
 
   # POST /employers

@@ -28,4 +28,9 @@ class BudgetTest < ActiveSupport::TestCase
   	@budget.end_date = nil
   	assert_not @budget.valid?
   end
+
+  test "start date before end date" do
+    @budget.start_date = @budget.end_date + 1.day
+    assert_not @budget.valid?
+  end
 end

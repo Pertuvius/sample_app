@@ -1,4 +1,5 @@
 class BudgetsController < ApplicationController
+  before_action :logged_in_user
   before_action :set_budget, only: [:show, :edit, :update, :destroy]
 
   # GET /budgets
@@ -21,6 +22,7 @@ class BudgetsController < ApplicationController
 
   # GET /budgets/1/edit
   def edit
+    @budget = Budget.find(params[:id])
   end
 
   # POST /budgets

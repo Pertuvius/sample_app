@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
    
    
@@ -22,6 +23,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+    @employee = Employee.find(params[:id])
   end
 
   # POST /employees

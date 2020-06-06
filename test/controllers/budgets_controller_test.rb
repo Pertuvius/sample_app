@@ -2,6 +2,7 @@ require 'test_helper'
 
 class BudgetsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    log_in_as(users(:michael))
     @budget = budgets(:one)
   end
 

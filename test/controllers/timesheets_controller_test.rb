@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TimesheetsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    log_in_as(users(:michael))
     @timesheet = timesheets(:one)
   end
 

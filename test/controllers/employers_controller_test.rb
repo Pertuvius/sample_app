@@ -2,6 +2,7 @@ require 'test_helper'
 
 class EmployersControllerTest < ActionDispatch::IntegrationTest
   setup do
+    log_in_as(users(:michael))
     @employer = employers(:one)
   end
 

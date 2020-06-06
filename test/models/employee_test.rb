@@ -23,4 +23,14 @@ class EmployeeTest < ActiveSupport::TestCase
     @employee.last_name = ""
     assert_not @employee.valid?
   end
+
+  test "first name should only contain letters" do
+    @employee.first_name = "paul1"
+    assert_not @employee.valid?
+  end
+
+  test "last name should only contain letters" do
+    @employee.last_name = "paul1"
+    assert_not @employee.valid?
+  end
 end

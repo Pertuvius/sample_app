@@ -1,5 +1,5 @@
 class Timesheet < ApplicationRecord
-	attr_accessor :month, :day, :year
+  attr_accessor :month, :day, :year
 	belongs_to :employee
 	belongs_to :budget
 	

@@ -1,4 +1,5 @@
 class TimesheetsController < ApplicationController
+  before_action :logged_in_user
   before_action :set_timesheet, only: [:show, :edit, :update, :destroy]
 
   # GET /timesheets
@@ -21,6 +22,7 @@ class TimesheetsController < ApplicationController
 
   # GET /timesheets/1/edit
   def edit
+    @timesheet = Timesheet.find(params[:id])
   end
 
   # POST /timesheets
